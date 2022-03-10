@@ -17,7 +17,7 @@
 }
 
 html {
-    font-size: 62.5%;
+
     line-height: 1.6rem;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
@@ -122,233 +122,6 @@ a {
     cursor: pointer;
 }
 
-/* CSS Almanac */
-.almanac {
-    position: absolute;
-    top: 65px;
-    /*left: 355px;*/
-    left: calc(((100%- 944px)/2)+ 304px);
-}
-
-#almanac {
-    display: none;
-}
-
-#almanac {
-    font-family: helvetica,arial,sans-serif;
-    width: 415px;
-    line-height: 1;
-    color: #fff;
-}
-
-#almanac .row {
-    font-weight: 700;
-    position: relative;
-}
-
-#almanac .title {
-    font-size: 9px;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-}
-
-#almanac .almcSponsor {
-    width: 230px;
-    height: 15px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    text-align: right;
-}
-
-#almanac .almcLocation {
-    border: 0;
-    background: none;
-    padding: 0;
-    display: block;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 700;
-    font-family: helvetica,arial,sans-serif;
-}
-
-#almanac .almcMenu {
-    display: none;
-    position: absolute;
-    left: 0;
-    top: 16px;
-    width: 165px;
-    background-color: #fff;
-    z-index: 1;
-    border: 1px solid #999;
-}
-
-#almanac .almcMenu button {
-    border: 0;
-    background: none;
-    padding: 6px;
-    display: block;
-    width: 165px;
-    color: #000;
-    text-align: left;
-}
-
-#almanac .almcDayBox {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 14px;
-    cursor: pointer;
-}
-
-#almanac .almcBackDay {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAOCAYAAAD9lDaoAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwQAADsEBuJFr7QAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAAeElEQVR4AX3KIRJBYRSAUZ6mKezADszobMIO3hJsRLjRCixBE3VBUUTJGMG7zgL+ueGk7xtFRGXJtRq2PMlWnNDzJVvTlAM/sjUtOCPQmFbcSZrTjhdZTReScppxZKgmoqPnXUzAmls9wZwTQzURHXs+1USM2fD4AyI3JVeHmoInAAAAAElFTkSuQmCC);
-    background-position: left center;
-}
-
-#almanac .almcDateButton {
-    width: 10px;
-    height: 14px;
-    opacity: 0;
-    -webkit-transition: opacity .15s linear;
-    transition: opacity .15s linear;
-    border: 0;
-    background: none;
-    padding: 0;
-    cursor: pointer;
-    background-repeat: no-repeat;
-}
-
-#almanac .almcDay {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    height: 14px;
-    width: 100px;
-    text-align: center;
-    vertical-align: top;
-    cursor: pointer;
-    font-size: 11px;
-    color: #fff;
-}
-
-input {
-    outline: none;
-}
-
-#almanac .almcForwardDay {
-    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAOCAYAAAD9lDaoAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwQAADsEBuJFr7QAAABp0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMTAw9HKhAAAAeklEQVR4AX3RIRKBQRjH4fVpmsIN3MCMziXc4DuCiwgbncARNFEXFEWUjBEsT9G8b3g2/cLO/y211hMzSsRTP9xY5RG86BnGEbzZMsqinwPTPIIL8zyCO+s8gmMWNXaMo+hBTxf96cwimqCxZxKN+WRDF53lypIB5Z8vEjQlV7EqTCEAAAAASUVORK5CYII=);
-    background-position: right center;
-}
-
-#almanac .almcContent {
-    clear: both;
-    font-weight: 700;
-    font-size: 11px;
-}
-
-#almanac .almcTabs {
-    border-bottom: 2px solid #999;
-    padding-bottom: 2px;
-    margin-bottom: 7px;
-}
-
-#almanac .almcTabs button {
-    font-family: helvetica,arial,sans-serif;
-    font-size: 10px;
-    font-weight: 700;
-    border: 0;
-    background: none;
-    padding: 0;
-    color: #fff;
-    text-align: left;
-    width: 32%;
-}
-
-#almanac #almcSunMoon {
-    display: block;
-}
-
-#almanac .tab {
-    display: none;
-}
-
-#almanac .planetPanel:first-child {
-    width: 151px;
-}
-
-#almanac .planetPanel {
-    display: inline-block;
-    vertical-align: top;
-    position: relative;
-    height: 60px;
-}
-
-#almanac .dataPanel {
-    margin-top: 7px;
-}
-
-#almanac .dataPanel label,
-#almanac .phasePanel label {
-    display: inline-block;
-    width: 40px;
-}
-
-#almanac .dataPanel span {
-    display: inline-block;
-    width: 50px;
-}
-
-#almanac .dataPanel>div,
-#almanac .phasePanel>div {
-    margin-bottom: 5px;
-}
-
-#almanac #almcSunImg {
-    width: 45px;
-    height: 50px;
-    background-position: 4px -194px;
-}
-
-#almanac .planetPanel>div {
-    display: inline-block;
-    vertical-align: top;
-    height: 60px;
-    position: relative;
-}
-
-#almanac .almcImg {
-    background-image: url(../images/planet-strip.png);
-    color: transparent;
-    font-size: 1px;
-    min-width: 57px;
-}
-
-#almanac #almcMoonPhase,
-#almanac #almcMoonDisk {
-    font-weight: normal;
-    color: #999;
-}
-
-#almanac footer {
-    margin-top: 2px;
-    height: 11px;
-    font-size: 11px;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-footer {
-    display: block;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
-    display: block;
-}
-
-
-
 /* CSS Modal */
 .modal {
     position: fixed;
@@ -358,34 +131,13 @@ article, aside, details, figcaption, figure, footer, header, hgroup, nav, sectio
     left: 0;
     display: none;
     animation: fadeIn linear 0.1s;
-    z-index: 1;
-}
-
-.modal.open {
-    display: flex;
-}
-
-.modal-login {
-    display: none;
-}
-
-.modal-login.open {
-    display: flex;
-}
-
-.modal-register {
-    display: none;
-}
-
-.modal-register.open {
-    display: flex;
 }
 
 .modal__overlay {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.81);
+    background-color: rgba(0,0,0,0.3);
 }
 
 .modal__body {
@@ -396,6 +148,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, nav, sectio
     z-index: 1;
     border-radius: 5px;
     animation: growth linear 0.1s;
+}
+
+.modal-register {
+    /*display: none;*/
+}
+
+.modal-login {
+    display: none;
 }
 
 /* Auth modal */
@@ -535,18 +295,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, nav, sectio
 .auth-form__help-link {
     font-size: 1.2rem;
     text-decoration: none;
-}
-
-.close-login {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    padding: 8px;
-    cursor: pointer;
-}
-
-.close-login:hover {
-    background-color: rgba(255, 0, 0, 0.45);
 }
 
 /* Menu */
@@ -713,6 +461,7 @@ ul {
 }
 
 
+
 .equipment_img img {
 
 }
@@ -859,7 +608,8 @@ ul {
     position: absolute;
     top: 16px;
     max-height: 300px;
-    /*width: auto;*/
+    width: 100%;
+    margin-top: -16px;
 }
 
 .solar-item__info {
@@ -868,15 +618,15 @@ ul {
 
 .solar-item__info h1 {
     padding-bottom: 12px;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #000;
 }
 
 .solar-item__name {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     font-weight: 400;
     color: var(--text-color);
-    line-height: 1.8rem;
+    line-height: 1;
     height: 86px;
     overflow: hidden;
     display: block;
@@ -886,9 +636,9 @@ ul {
     text-align: justify;
 }
 /* Pham Dung */
-.body {
-    background: url(../images/bg-body.jpg) repeat left top;
-}
+
+/*Phần ảnh đầu trang*/
+/*---*/
 .box {
     color: #ffffc0;
     text-align: center;
@@ -953,6 +703,9 @@ th {
     vertical-align: inherit;
     font-weight: bold;
 }
+.switchpage{
+    margin-bottom: 20px;
+}
 /*Contact*/
 .btn3, #newsletter input {
     background: url(../images/contact/interface.png) no-repeat;
@@ -985,7 +738,7 @@ th {
 }
 #contact form ul li > label {
     float: right;
-    color: #e8eff4;
+    color: #7c7c44;
     display: inline-block;
     font: italic 14px/36px 'PTSerif-Caption';
     width: 230px;
@@ -999,7 +752,7 @@ th {
 }
 #contact textarea {
     float: left;
-    background-color: #fff;
+    background-color: #176caa7a;
     color: #060606;
     font: 14px/36px Arial, Helvetica, sans-serif;
     height: 367px;
@@ -1008,6 +761,7 @@ th {
     margin: 0 10px 0 0;
     padding-left: 10px;
     overflow: auto;
+    border-radius: 15px;
 }
 #contact form ul li div {
     display: inline-block;
@@ -1022,7 +776,7 @@ th {
     font-weight: normal;
 }
 #contact input[type='text'] {
-    background-color: #fff;
+    background-color: #176caa7a;
     color: #060606;
     font: 14px/36px Arial, Helvetica, sans-serif;
     height: 36px;
@@ -1030,6 +784,7 @@ th {
     border: 0;
     margin-right: 10px;
     padding: 0 10px;
+    border-radius: 15px;
 }
 #contact input[type='checkbox'] {
     background-position: 0 0;
@@ -1050,17 +805,13 @@ th {
     cursor: pointer;
 }
 /*------------------------------ CONTENTS ------------------------------*/
-#contents {
-    background: url(../images/contact/bg-content.png) repeat-x center top;
-    margin: 0 auto;
-}
+
 #contents h1, #featured h3 {
-    color: #fbfdfd;
     font-style: italic;
     margin: 0 0 18px;
 }
 #contents p {
-    color: #e8eff4;
+
     font-size: 14px;
     line-height: 24px;
     margin: 0;
