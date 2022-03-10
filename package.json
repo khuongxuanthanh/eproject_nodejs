@@ -1,0 +1,30 @@
+{
+  "name": "eproject_nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khuongxuanthanh/eproject_nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khuongxuanthanh/eproject_nodejs/issues"
+  },
+  "homepage": "https://github.com/khuongxuanthanh/eproject_nodejs#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1",
+    "morgan": "^1.10.0",
+    "mssql": "^8.0.2"
+  }
+}
