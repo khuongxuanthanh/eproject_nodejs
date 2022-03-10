@@ -691,11 +691,6 @@ ul {
 
 
 /* CSS Equipment */
-
-.equipment{
-    width: 50%;
-}
-
 .equipment {
     float: left;
     width: 50%;
@@ -704,21 +699,33 @@ ul {
 
 .equipment-item {
     display: flex;
-    padding: 20px 0;
+    padding: 16px 16px;
+    box-shadow: 0 0.1rem 0.2rem 0 rgba(0,0,0,0.1);
 }
 
 .equipment_img{
     padding-right: 16px;
     width: 24%;
+    height: 68px;
 }
 
 
 .equipment_img img {
+    height: 100%;
+}
 
+.equipment_title h2 a{
+    line-height: 2.4rem;
+}
+
+.equipment_title h2 a:hover,
+.home-item h1 a:hover,
+.featured h2 a:hover {
+    color: #666;
 }
 
 .equipment_title{
-    width: 70%;
+
 }
 
 .featured {
