@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo Gallery</title>
+    <link rel="stylesheet" href="../css/demogallery.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<div class="solar">
+    <div class="grid">
+        <h1>Gallery</h1>
+        <div class="grid__row">
+            <div class="grid__column-2">
+                <nav class="category">
+                    <h3 class="category__heading">
+                        <b>Category</b>
+                    </h3>
+
+                    <ul class="category-list">
+                        <li class="category-item category-item-active">
+                            <a href="/photos" class="category-item__link">Photos</a>
+                        </li>
+                        <li class="category-item category-item-active">
+                            <a href="/videos" class="category-item__link">Videos</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="grid__column-10">
+                <div class="solar-layout">
+                    <div class="grid__row">
+                        <div class="grid__column-3_10 photos_caption"">
+                            <h1>
+                                Images Collection
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+    <div class="image">
+        <img src="../images/photos/photos7.jfif">
+    </div>
+    <div class="image">
+        <img src="../images/photos/photos8.jfif">
+    </div>
+    <div class="image">
+        <img src="../images/photos/photos9.jfif">
+    </div>
+    <div class="image">
+        <img src="../images/photos/photos10.jfif">
+    </div>
+    <div class="image">
+        <img src="https://astronomy.com/-/media/4DF950748F43418C8A23079F99ED31DA.jpg"/>
+    </div>
+    <div class="image">
+        <img src="../images/photos/con11.jpeg">
+    </div>
+    <div class="image">
+        <img src="../images/photos/con12.jpg">
+    </div>
+    <div class="image">
+        <img src="https://astronomy.com/-/media/598A7495A9B54DC08041BB3A5C796E9C.jpg"/>
+    </div>
+
+    <div class="image">
+        <img src="https://s26162.pcdn.co/wp-content/uploads/2018/06/milky-way.jpg"/>
+    </div>
+
+    <div class="image">
+        <img src="../images/photos/constellation2.jfif"/>
+    </div>
+
+    <div class="image">
+        <img src="../images/photos/constellation3.png">
+    </div>
+
+    <div class="image">
+        <img src="../images/photos/constellation4.png">
+    </div>
+
+    <div class="image">
+        <img src="../images/photos/constellation5.jfif">
+    </div>
+    <div class="image">
+        <img src="../images/photos/con6.jfif">
+    </div>
+    <div class="image">
+        <img src="../images/photos/con7.jfif">
+    </div>
+    <div class="image">
+        <img src="../images/photos/con8.jfif">
+    </div>
+    <div class="image">
+        <img src="../images/photos/con9.jpg">
+    </div>
+    <div class="image">
+        <img src="../images/photos/con10.jpg">
+    </div>
+</div>
+
+<div class="gallery">
+    <div class="close">
+        <i class="fas fa-times"></i>
+    </div>
+    <div class="inner_img">
+        <img src="image/img3.jpg"/>
+    </div>
+    <div class="next">
+        <i class="fas fa-chevron-right"></i>
+    </div>
+    <div class="pre">
+        <i class="fas fa-chevron-left"></i>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var close = document.querySelector('.close');
+    var next = document.querySelector('.next');
+    var previous = document.querySelector('.pre');
+    var gallery = document.querySelector('.gallery');
+    var clickimg = document.querySelectorAll('.image img');
+    var galleryImg = document.querySelector('.inner_img img');
+
+    var currentIndex = 0;
+
+    function display() {
+        if (currentIndex == 0){
+            previous.classList.add('hide')
+        }else{
+            previous.classList.remove('hide')
+        }
+        if (currentIndex == clickimg.length - 1){
+            next.classList.add('hide')
+        }else{
+            next.classList.remove('hide')
+        }
+
+        galleryImg.src = clickimg[currentIndex].src
+        gallery.classList.add('show')
+    }
+
+    clickimg.forEach((item, index)=>{
+        item.addEventListener('click', function () {
+            currentIndex = index
+            display()
+        })
+    })
+
+    close.addEventListener('click',function () {
+        gallery.classList.remove('show')
+    })
+
+    document.addEventListener('keydown',function (e) {
+        if (e.keyCode == 27){
+            gallery.classList.remove('show')
+        }
+    })
+
+    next.addEventListener('click',function () {
+        if (currentIndex < clickimg.length - 1){
+            currentIndex++
+            display()
+        }
+    })
+
+    previous.addEventListener('click',function () {
+        if (currentIndex > 0){
+            currentIndex--
+            display()
+        }
+    })
+</script>
+</body>
+</html>
