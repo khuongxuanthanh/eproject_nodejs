@@ -706,13 +706,12 @@ th {
 .switchpage{
     margin-bottom: 20px;
 }
-/*Contact*/
-.btn3, #newsletter input {
-    background: url(../images/contact/interface.png) no-repeat;
-    background-position: 0 -108px;
-    height: 49px;
-    width: 222px;
-}
+/*Contact*/.btn3, #newsletter input {
+               background: url(../images/contact/interface.png) no-repeat;
+               background-position: 0 -108px;
+               height: 49px;
+               width: 222px;
+           }
 .btn3 {
     color: #fdfdfd;
     display: inline-block;

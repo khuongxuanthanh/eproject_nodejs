@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const morgan = require('morgan');
-const port = process.env.PORT || 1402;
+const port = process.env.PORT || 1999;
 
 const app = express();
 
@@ -18,6 +18,28 @@ app.use(express.static("public/images"));// cho quyền truy cập toàn bộ c�
 app.set('views', path.join(__dirname, 'views'));
 app.set('layout', './layouts/main');
 app.set("view engine","ejs");
+
+//Connect to Database Azure PhamDung
+var mssql = require("mssql");
+var config = {
+    server: "phamdung.database.windows.net",
+    user:"phamdung",
+    password:"ducdung1@",
+    database:"phamdung",
+    stream: false,
+    port:1433,
+    options: {
+        trustedConnection: true,
+        encrypt: true,
+        enableArithAbort: true,
+        trustServerCertificate: true,
+    },
+}
+mssql.connect(config,function (err){
+    if(err) console.log(err);
+    else console.log("connected database..");
+});
+
 
 app.get('/', (req, res) => {
     res.render('home')
