@@ -297,6 +297,18 @@ a {
     text-decoration: none;
 }
 
+.close-login {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.close-login:hover {
+    background-color: rgba(255, 0, 0, 0.45);
+}
+
 /* Menu */
 menu {
     padding: 0;
@@ -439,11 +451,6 @@ ul {
 
 
 /* CSS Equipment */
-
-.equipment{
-    width: 50%;
-}
-
 .equipment {
     float: left;
     width: 50%;
@@ -452,22 +459,33 @@ ul {
 
 .equipment-item {
     display: flex;
-    padding: 20px 0;
+    padding: 16px 16px;
+    box-shadow: 0 0.1rem 0.2rem 0 rgba(0,0,0,0.1);
 }
 
 .equipment_img{
     padding-right: 16px;
     width: 24%;
+    height: 68px;
 }
-
 
 
 .equipment_img img {
+    height: 100%;
+}
 
+.equipment_title h2 a{
+    line-height: 2.4rem;
+}
+
+.equipment_title h2 a:hover,
+.home-item h1 a:hover,
+.featured h2 a:hover {
+    color: #666;
 }
 
 .equipment_title{
-    width: 70%;
+
 }
 
 .featured {
@@ -706,12 +724,13 @@ th {
 .switchpage{
     margin-bottom: 20px;
 }
-/*Contact*/.btn3, #newsletter input {
-               background: url(../images/contact/interface.png) no-repeat;
-               background-position: 0 -108px;
-               height: 49px;
-               width: 222px;
-           }
+/*Contact*/
+.btn3, #newsletter input {
+    background: url(../images/contact/interface.png) no-repeat;
+    background-position: 0 -108px;
+    height: 49px;
+    width: 222px;
+}
 .btn3 {
     color: #fdfdfd;
     display: inline-block;

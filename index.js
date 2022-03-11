@@ -117,12 +117,73 @@ app.get('/Contact', (req, res) => {
     res.render('contact')
 })
 //Kết thúc phần của dũng*************
+
+//constellation
 app.get('/Constellation', (req, res) => {
     res.render('constellation')
 })
+app.get('/constellation2', (req, res) => {
+    res.render('constellation2')
+})
+app.get('/constellation/aquarius-details', (req, res) => {
+    res.render('constellation/aquarius-details')
+})
+app.get('/constellation/aries-details', (req, res) => {
+    res.render('constellation/aries-details')
+})
 
-app.get('/Constellation/Aquarius', (req, res) => {
-    res.render('constell/aquarius')
+
+app.get('/constellation/cancer-details', (req, res) => {
+    res.render('constellation/cancer-details')
+})
+app.get('/constellation/capricon-details', (req, res) => {
+    res.render('constellation/capricon-details')
+})
+app.get('/constellation/gemini-details', (req, res) => {
+    res.render('constellation/gemini-details')
+})
+app.get('/constellation/leo-details', (req, res) => {
+    res.render('constellation/leo-details')
+})
+app.get('/constellation/libra-details', (req, res) => {
+    res.render('constellation/libra-details')
+})
+app.get('/constellation/pisces-details', (req, res) => {
+    res.render('constellation/pisces-details')
+})
+app.get('/constellation/sagittarius-details', (req, res) => {
+    res.render('constellation/sagittarius-details')
+})
+app.get('/constellation/scopio-details', (req, res) => {
+    res.render('constellation/scopio-details')
+})
+app.get('/constellation/taurus-details', (req, res) => {
+    res.render('constellation/taurus-details')
+})
+app.get('/constellation/virgo-details', (req, res) => {
+    res.render('constellation/virgo-details')
+})
+
+//photos
+app.get('/photos', (req, res) => {
+    res.render('photos')
+})
+app.get('/videos', (req, res) => {
+    res.render('videos')
+})
+
+//location
+app.get('/location', (req, res) => {
+    res.render('location')
+})
+app.get('/location/location1', (req, res) => {
+    res.render('location/location1')
+})
+app.get('/location/location2', (req, res) => {
+    res.render('location/location2')
+})
+app.get('/location/location3', (req, res) => {
+    res.render('location/location3')
 })
 
 app.listen(port, () => {
