@@ -133,6 +133,26 @@ a {
     animation: fadeIn linear 0.1s;
 }
 
+.modal.open {
+    display: flex;
+}
+
+.modal-login {
+    display: none;
+}
+
+.modal-login.open {
+    display: flex;
+}
+
+.modal-register {
+    display: none;
+}
+
+.modal-register.open {
+    display: flex;
+}
+
 .modal__overlay {
     position: absolute;
     width: 100%;
