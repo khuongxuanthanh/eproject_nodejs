@@ -188,17 +188,19 @@ a {
 
 .auth-form__container {
     padding: 0 32px;
+    width: 100%;
 }
 
 .auth-form__header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-top: 24px;
 }
 
 .auth-form__heading {
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 500;
     color: var(--text-color);
 }
 
@@ -236,7 +238,7 @@ a {
 }
 
 .auth-form__policy-text {
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: 1.8rem;
     text-align: center;
     padding: 0 12px;
@@ -245,12 +247,23 @@ a {
 .auth-form__text-link {
     color: var(--primary-color);
     text-decoration: none;
+    cursor: pointer;
+}
+
+.auth-form__text-link:hover {
+    color: red;
+    text-decoration: none;
 }
 
 .auth-form__controls {
     margin-top: 32px;
     justify-content: flex-end;
     display: flex;
+}
+
+.auth-form__controls button:hover {
+    background-color: orangered;
+    color: white;
 }
 
 .auth-form__controls-back {
@@ -269,17 +282,17 @@ a {
 }
 
 .btn--with-icon-facebook {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #1877f2;
 }
 
 .btn--with-icon-google {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #FE5122;
 }
 
 .btn--with-icon-apple {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     color: #000;
 }
 
@@ -316,8 +329,13 @@ a {
 }
 
 .auth-form__help-link {
-    font-size: 1rem;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+}
+
+.auth-form__help-link:hover {
     text-decoration: none;
+    color: var(--primary-color);
 }
 
 .close-login {
