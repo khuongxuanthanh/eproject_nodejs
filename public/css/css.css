@@ -534,12 +534,20 @@ ul {
 
 /* CSS Category */
 .category {
-    border-radius: 2px;
-    background-color: var(--white-color);
+    margin-top: 15px;
+    border-radius: 15px;
+    background-image: url("../images/homecarousel2.jpg");
+    background-position: right;
+    text-align: center;
+}
+.category img{
+    width: 100%;
+    padding: 3px;
+    height: 100%;
 }
 
 .category__heading {
-    color: var(--text-color);
+    color: white;
     font-size: 1.5rem;
     padding: 16px 20px 0;
     margin-top: 0;
@@ -547,11 +555,21 @@ ul {
     font-weight: 400;
 }
 
+
 .category-list {
     padding: 0 0 8px 0;
     list-style: none;
 }
-
+.category-list a{
+    color: white;
+}
+.category-list button{
+    color: white;
+    width: 100%;
+}
+.category-list button:hover{
+    color: red;
+}
 .category-item {
     position: relative;
 }
@@ -568,6 +586,7 @@ ul {
     left: 16px;
     right: 16px;
 }
+
 
 /*.category-item-active .category-item__link {*/
 /*    color: var(--primary-color);*/
@@ -843,7 +862,15 @@ th {
     cursor: pointer;
 }
 /*------------------------------ CONTENTS ------------------------------*/
-
+.caption{
+    font-style: italic;
+    font-size: smaller;
+}
+.credit{
+    float: right;
+    font-style: italic;
+    font-weight: lighter;
+}
 #contents h1, #featured h3 {
     font-style: italic;
     margin: 0 0 18px;
@@ -888,10 +915,13 @@ th {
     width: 1300px;
     margin: 0 auto;
 }
+/*article*/
+.article ul{
+    list-style-type: none;
+}
 /** main **/
 .main {
     padding: 20px;
-
 }
 /** sidebar **/
 #sidebar {
@@ -923,6 +953,43 @@ th {
     width: 221px;
     margin-left: 20px;
     text-align: center;
+}
+/*Comment*/
+
+.date {
+    font-size: 11px
+}
+
+.comment-text {
+    font-size: 12px
+}
+
+.fs-12 {
+    font-size: 12px
+}
+
+.shadow-none {
+    box-shadow: none
+}
+
+.name {
+    color: #007bff
+}
+
+.cursor:hover {
+    color: blue
+}
+
+.cursor {
+    cursor: pointer
+}
+
+.textarea {
+    resize: none
+}
+#comment{
+    border-radius: 20px;
+    background: #255093;
 }
 
 /***Kết thúc phần của Dũng***/

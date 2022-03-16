@@ -39,7 +39,7 @@ mssql.connect(config,function (err){
     if(err) console.log(err);
     else console.log("connected database..");
 });
-
+var sql = new mssql.Request();
 
 app.get('/', (req, res) => {
     res.render('home')
@@ -53,13 +53,6 @@ app.get('/Equipment/Accessories_01', (req, res) => {
     res.render('equipment/accessories_01')
 })
 
-app.get('/News', (req, res) => {
-    res.render('news')
-})
-
-app.get('/News/Stars-01', (req, res) => {
-    res.render('news/stars01')
-})
 
 app.get('/Observing', (req, res) => {
     res.render('observing')
@@ -116,6 +109,183 @@ app.get('/SolarSystem/meteoroids', (req, res) => {
 app.get('/Contact', (req, res) => {
     res.render('contact')
 })
+
+app.get("/News",function (req,res){
+    var para = req.query.Title || "";
+    var sql_txt = "select * from News where Title like '%"+para+"%';";
+    sql.query(sql_txt,function (err,rs){
+        if(err) res.send("Error....");
+            else{
+                // console.log(sql_txt);
+                // res.send(rs.recordsets);
+                res.render("news",{
+                    News:rs.recordset
+                })
+            }
+    })
+})
+
+app.get("/news-detail-id=100",function (req,res) {
+    var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
+    sql.query(sql_txt,function (err,rs){
+        if(err) res.send("Error....");
+        else {
+            // res.send(rs.recordsets);
+            res.render("news/newsdetail-id=100",{
+                News:rs.recordsets[0][0],
+                Pictures:rs.recordsets[1],
+                Account:rs.recordsets[2],
+                Comments:rs.recordsets[3][0]
+            })
+        }
+    })
+})
+
+app.get("/news-detail-id=101",function (req,res) {
+    var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
+    sql.query(sql_txt,function (err,rs){
+        if(err) res.send("Error....");
+        else {
+            // res.send(rs.recordsets);
+            res.render("news/newsdetail-id=101",{
+                News:rs.recordsets[0][1],
+                Pictures:rs.recordsets[1],
+                Account:rs.recordsets[2],
+                Comments:rs.recordsets[3][1]
+            })
+        }
+    })
+})
+
+app.get("/news-detail-id=102",function (req,res) {
+    var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
+    sql.query(sql_txt,function (err,rs){
+        if(err) res.send("Error....");
+        else {
+            // res.send(rs.recordsets);
+            res.render("news/newsdetail-id=102",{
+                News:rs.recordsets[0][2],
+                Pictures:rs.recordsets[1],
+                Account:rs.recordsets[2],
+                Comments:rs.recordsets[3][2]
+            })
+        }
+    })
+})
+
+app.get("/news-detail-id=103",function (req,res) {
+    var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
+    sql.query(sql_txt,function (err,rs){
+        if(err) res.send("Error....");
+        else {
+            // res.send(rs.recordsets);
+            res.render("news/newsdetail-id=103",{
+                News:rs.recordsets[0][3],
+                Pictures:rs.recordsets[1],
+                Account:rs.recordsets[2],
+                Comments:rs.recordsets[3][2]
+            })
+        }
+    })
+})
+
+app.get("/news-detail-id=104",function (req,res) {
+    var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
+    sql.query(sql_txt,function (err,rs){
+        if(err) res.send("Error....");
+        else {
+            // res.send(rs.recordsets);
+            res.render("news/newsdetail-id=104",{
+                News:rs.recordsets[0][4],
+                Pictures:rs.recordsets[1],
+                Account:rs.recordsets[2],
+                Comments:rs.recordsets[3][2]
+            })
+        }
+    })
+})
+app.get("/news-detail-id=105",function (req,res) {
+    var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
+    sql.query(sql_txt,function (err,rs){
+        if(err) res.send("Error....");
+        else {
+            // res.send(rs.recordsets);
+            res.render("news/newsdetail-id=105",{
+                News:rs.recordsets[0][5],
+                Pictures:rs.recordsets[1],
+                Account:rs.recordsets[2],
+                Comments:rs.recordsets[3][2]
+            })
+        }
+    })
+})
+app.get("/news-detail-id=106",function (req,res) {
+    var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
+    sql.query(sql_txt,function (err,rs){
+        if(err) res.send("Error....");
+        else {
+            // res.send(rs.recordsets);
+            res.render("news/newsdetail-id=106",{
+                News:rs.recordsets[0][6],
+                Pictures:rs.recordsets[1],
+                Account:rs.recordsets[2],
+                Comments:rs.recordsets[3][2]
+            })
+        }
+    })
+})
+
+app.get("/news-detail-id=107",function (req,res) {
+    var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
+    sql.query(sql_txt,function (err,rs){
+        if(err) res.send("Error....");
+        else {
+            // res.send(rs.recordsets);
+            res.render("news/newsdetail-id=107",{
+                News:rs.recordsets[0][7],
+                Pictures:rs.recordsets[1],
+                Account:rs.recordsets[2],
+                Comments:rs.recordsets[3][2]
+            })
+        }
+    })
+})
+
+app.get("/news-detail-id=108",function (req,res) {
+    var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
+    sql.query(sql_txt,function (err,rs){
+        if(err) res.send("Error....");
+        else {
+            // res.send(rs.recordsets);
+            res.render("news/newsdetail-id=108",{
+                News:rs.recordsets[0][8],
+                Pictures:rs.recordsets[1],
+                Account:rs.recordsets[2],
+                Comments:rs.recordsets[3][2]
+            })
+        }
+    })
+})
+
+app.get("/news-detail-id=109",function (req,res) {
+    var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
+    sql.query(sql_txt,function (err,rs){
+        if(err) res.send("Error....");
+        else {
+            // res.send(rs.recordsets);
+            res.render("news/newsdetail-id=109",{
+                News:rs.recordsets[0][9],
+                Pictures:rs.recordsets[1],
+                Account:rs.recordsets[2],
+                Comments:rs.recordsets[3][2]
+            })
+        }
+    })
+})
+
+
+
+
 //Kết thúc phần của dũng*************
 
 //constellation
