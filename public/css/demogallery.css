@@ -23,7 +23,7 @@ body{
     overflow: hidden;
     cursor: pointer;
 }
-img{
+.wrap img{
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -34,7 +34,13 @@ img{
     transition: 0.5s;
 }
 .inner_img{
-    width: 35%;
+    width: 50%;
+
+}
+.inner_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .gallery{
     position: fixed;
@@ -58,6 +64,7 @@ img{
     top: 10px;
     right: 15px;
     cursor: pointer;
+    color: white;
 }
 .next{
     position: fixed;
@@ -107,8 +114,5 @@ h2{
 }
 
 .category{
-    margin-top: 20px;
-}
-.grid{
     margin-top: 20px;
 }
