@@ -1299,6 +1299,11 @@ position: absolute;
     width: 100%;
     object-fit: cover;
 }
+#carouselExampleIndicators{
+    width: 300px;
+    float: right;
+    margin: 15px;
+}
 /*photos*/
 .photos_caption{
     margin: 0 auto;
