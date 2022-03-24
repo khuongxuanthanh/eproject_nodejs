@@ -17,13 +17,13 @@
 }
 
 html {
-
     line-height: 1.6rem;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
 }
 
 body {
+    /*font-family: 'teko', sans-serif;*/
 }
 
 a {
@@ -364,50 +364,10 @@ menu {
     height: 46px;
 }
 
-.navbar .nav-layout {
-    display: inline-block;
-    margin: auto;
+.navbar-collapse ul li a,
+.navbar a{
+    color: white;
 }
-
-ul {
-    padding: 0;
-}
-
-.nav-layout li{
-    display: inline-block;
-}
-
-.nav-layout li a {
-    color: #fff;
-    text-decoration: none;
-    line-height: 46px;
-    padding: 0 12px;
-    display: inline-block;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.nav-layout li:hover a {
-    color: #000;
-    background-color: #ccc;
-}
-
-.navbar .search-btn {
-    float: right;
-    padding: 0 21px;
-}
-
-.navbar .search-btn:hover {
-    background-color: red;
-    cursor: pointer;
-}
-
-.navbar .search-icon {
-    color: #ffffff;
-    line-height: 46px;
-    font-size: 16px;
-}
-
 /* CSS Footer */
 .footer {
     background: url(../images/footer-bg.jpg) no-repeat;
