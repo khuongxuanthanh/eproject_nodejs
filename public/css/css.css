@@ -745,6 +745,7 @@ menu {
     max-height: 300px;
     width: 100%;
     margin-top: -16px;
+    object-fit: cover;
 }
 
 .solar-item__info {
@@ -1257,6 +1258,11 @@ position: absolute;
 .conste-item__img img{
     width: 100%;
     object-fit: cover;
+}
+#carouselExampleIndicators{
+    width: 300px;
+    float: right;
+    margin: 15px;
 }
 /*photos*/
 .photos_caption{

@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const morgan = require('morgan');
-const port = process.env.PORT || 1999;
+const port = process.env.PORT || 2000;
 
 const app = express();
 
@@ -114,7 +114,7 @@ app.get("/News",function (req,res){
     var para = req.query.Title || "";
     var sql_txt = "select * from News where Title like '%"+para+"%';";
     sql.query(sql_txt,function (err,rs){
-        if(err) res.send("Error....");
+        if(err) res.send(err);
             else{
                 // console.log(sql_txt);
                 // res.send(rs.recordsets);
