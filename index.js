@@ -20,26 +20,49 @@ app.set('layout', './layouts/main');
 app.set("view engine","ejs");
 
 //Connect to Database Azure PhamDung
-var mssql = require("mssql");
-var config = {
-    server: "phamdung.database.windows.net",
-    user:"phamdung",
-    password:"ducdung1@",
-    database:"phamdung",
-    stream: false,
-    port:1433,
+var mysql=require('mysql');
+var db_config = {
+    host:'database-projectastronomy.c2bfozqh9syp.ap-southeast-1.rds.amazonaws.com',
+    user:'phamdung',
+    password:'ducdung1',
+    database:'phamdung',
+    port:3306,
+    stream:false,
+    multipleStatements: true,
     options: {
         trustedConnection: true,
         encrypt: true,
         enableArithAbort: true,
         trustServerCertificate: true,
-    },
+    }
+};
+var conn;
+
+function handleDisconnect() {
+    conn = mysql.createConnection(db_config); // Recreate the connection, since
+    // the old one cannot be reused.
+    // the old one cannot be reused.
+
+    conn.connect(function(err) {              // The server is either down
+        if(err) {                                     // or restarting (takes a while sometimes).
+            console.log('error when connecting to db:', err);
+            setTimeout(handleDisconnect, 2000); // We introduce a delay before attempting to reconnect,
+        }// to avoid a hot loop, and to allow our node script to
+        else console.log('Connected to database')// to avoid a hot loop, and to allow our node script to
+    });                                     // process asynchronous requests in the meantime.
+                                            // If you're also serving http, display a 503 error.
+    conn.on('error', function(err) {
+        console.log('db error', err);
+        if(err.code === 'PROTOCOL_CONNECTION_LOST') { // Connection to the MySQL server is usually
+            handleDisconnect();                         // lost due to either server restart, or a
+        } else {                                      // connnection idle timeout (the wait_timeout
+            throw err;                                  // server variable configures this)
+        }
+    });
 }
-mssql.connect(config,function (err){
-    if(err) console.log(err);
-    else console.log("connected database..");
-});
-var sql = new mssql.Request();
+
+handleDisconnect();
+//end connect to database
 
 app.get('/', (req, res) => {
     res.render('home')
@@ -112,30 +135,29 @@ app.get('/Contact', (req, res) => {
 
 app.get("/News",function (req,res){
     var para = req.query.Title || "";
-    var sql_txt = "select * from News where Title like '%"+para+"%';";
-    sql.query(sql_txt,function (err,rs){
+    var sql_txt = "select * from News where Title like '%"+para+"%'";
+    conn.query(sql_txt,function (err, result){
         if(err) res.send(err);
-            else{
-                // console.log(sql_txt);
-                // res.send(rs.recordsets);
-                res.render("news",{
-                    News:rs.recordset
-                })
-            }
+        else{
+            // console.log(result);
+            res.render("news",{
+                News:result
+            })
+        }
     })
 })
 
 app.get("/news-detail-id=100",function (req,res) {
-    var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
-    sql.query(sql_txt,function (err,rs){
-        if(err) res.send("Error....");
+    var sql_txt = "select * from News ; select * from Pictures; select*from Account; select * from Comments;";
+    conn.query(sql_txt,function (err,results){
+        if(err) res.send(err);
         else {
-            // res.send(rs.recordsets);
+            // res.send(results);
             res.render("news/newsdetail-id=100",{
-                News:rs.recordsets[0][0],
-                Pictures:rs.recordsets[1],
-                Account:rs.recordsets[2],
-                Comments:rs.recordsets[3][0]
+                News:results[0][0],
+                Pictures:results[1],
+                Account:results[2],
+                Comments:results[3][0]
             })
         }
     })
@@ -143,15 +165,15 @@ app.get("/news-detail-id=100",function (req,res) {
 
 app.get("/news-detail-id=101",function (req,res) {
     var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
-    sql.query(sql_txt,function (err,rs){
+    conn.query(sql_txt,function (err,results){
         if(err) res.send("Error....");
         else {
             // res.send(rs.recordsets);
             res.render("news/newsdetail-id=101",{
-                News:rs.recordsets[0][1],
-                Pictures:rs.recordsets[1],
-                Account:rs.recordsets[2],
-                Comments:rs.recordsets[3][1]
+                News:results[0][1],
+                Pictures:results[1],
+                Account:results[2],
+                Comments:results[3][1]
             })
         }
     })
@@ -159,15 +181,15 @@ app.get("/news-detail-id=101",function (req,res) {
 
 app.get("/news-detail-id=102",function (req,res) {
     var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
-    sql.query(sql_txt,function (err,rs){
+    conn.query(sql_txt,function (err,results){
         if(err) res.send("Error....");
         else {
             // res.send(rs.recordsets);
             res.render("news/newsdetail-id=102",{
-                News:rs.recordsets[0][2],
-                Pictures:rs.recordsets[1],
-                Account:rs.recordsets[2],
-                Comments:rs.recordsets[3][2]
+                News:results[0][2],
+                Pictures:results[1],
+                Account:results[2],
+                Comments:results[3][2]
             })
         }
     })
@@ -175,15 +197,15 @@ app.get("/news-detail-id=102",function (req,res) {
 
 app.get("/news-detail-id=103",function (req,res) {
     var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
-    sql.query(sql_txt,function (err,rs){
+    conn.query(sql_txt,function (err,results){
         if(err) res.send("Error....");
         else {
             // res.send(rs.recordsets);
             res.render("news/newsdetail-id=103",{
-                News:rs.recordsets[0][3],
-                Pictures:rs.recordsets[1],
-                Account:rs.recordsets[2],
-                Comments:rs.recordsets[3][2]
+                News:results[0][3],
+                Pictures:results[1],
+                Account:results[2],
+                Comments:results[3][2]
             })
         }
     })
@@ -191,45 +213,45 @@ app.get("/news-detail-id=103",function (req,res) {
 
 app.get("/news-detail-id=104",function (req,res) {
     var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
-    sql.query(sql_txt,function (err,rs){
+    conn.query(sql_txt,function (err,results){
         if(err) res.send("Error....");
         else {
             // res.send(rs.recordsets);
             res.render("news/newsdetail-id=104",{
-                News:rs.recordsets[0][4],
-                Pictures:rs.recordsets[1],
-                Account:rs.recordsets[2],
-                Comments:rs.recordsets[3][2]
+                News:results[0][4],
+                Pictures:results[1],
+                Account:results[2],
+                Comments:results[3][2]
             })
         }
     })
 })
 app.get("/news-detail-id=105",function (req,res) {
     var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
-    sql.query(sql_txt,function (err,rs){
+    conn.query(sql_txt,function (err,results){
         if(err) res.send("Error....");
         else {
             // res.send(rs.recordsets);
             res.render("news/newsdetail-id=105",{
-                News:rs.recordsets[0][5],
-                Pictures:rs.recordsets[1],
-                Account:rs.recordsets[2],
-                Comments:rs.recordsets[3][2]
+                News:results[0][5],
+                Pictures:results[1],
+                Account:results[2],
+                Comments:results[3][2]
             })
         }
     })
 })
 app.get("/news-detail-id=106",function (req,res) {
     var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
-    sql.query(sql_txt,function (err,rs){
+    conn.query(sql_txt,function (err,results){
         if(err) res.send("Error....");
         else {
             // res.send(rs.recordsets);
             res.render("news/newsdetail-id=106",{
-                News:rs.recordsets[0][6],
-                Pictures:rs.recordsets[1],
-                Account:rs.recordsets[2],
-                Comments:rs.recordsets[3][2]
+                News:results[0][6],
+                Pictures:results[1],
+                Account:results[2],
+                Comments:results[3][2]
             })
         }
     })
@@ -237,15 +259,15 @@ app.get("/news-detail-id=106",function (req,res) {
 
 app.get("/news-detail-id=107",function (req,res) {
     var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
-    sql.query(sql_txt,function (err,rs){
+    conn.query(sql_txt,function (err,results){
         if(err) res.send("Error....");
         else {
             // res.send(rs.recordsets);
             res.render("news/newsdetail-id=107",{
-                News:rs.recordsets[0][7],
-                Pictures:rs.recordsets[1],
-                Account:rs.recordsets[2],
-                Comments:rs.recordsets[3][2]
+                News:results[0][7],
+                Pictures:results[1],
+                Account:results[2],
+                Comments:results[3][2]
             })
         }
     })
@@ -253,15 +275,15 @@ app.get("/news-detail-id=107",function (req,res) {
 
 app.get("/news-detail-id=108",function (req,res) {
     var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
-    sql.query(sql_txt,function (err,rs){
+    conn.query(sql_txt,function (err,results){
         if(err) res.send("Error....");
         else {
             // res.send(rs.recordsets);
             res.render("news/newsdetail-id=108",{
-                News:rs.recordsets[0][8],
-                Pictures:rs.recordsets[1],
-                Account:rs.recordsets[2],
-                Comments:rs.recordsets[3][2]
+                News:results[0][8],
+                Pictures:results[1],
+                Account:results[2],
+                Comments:results[3][2]
             })
         }
     })
@@ -269,15 +291,15 @@ app.get("/news-detail-id=108",function (req,res) {
 
 app.get("/news-detail-id=109",function (req,res) {
     var sql_txt = "select * from News;select * from Pictures; select*from Account; select * from Comments";
-    sql.query(sql_txt,function (err,rs){
+    conn.query(sql_txt,function (err,results){
         if(err) res.send("Error....");
         else {
             // res.send(rs.recordsets);
             res.render("news/newsdetail-id=109",{
-                News:rs.recordsets[0][9],
-                Pictures:rs.recordsets[1],
-                Account:rs.recordsets[2],
-                Comments:rs.recordsets[3][2]
+                News:results[0][9],
+                Pictures:results[1],
+                Account:results[2],
+                Comments:results[3][2]
             })
         }
     })
