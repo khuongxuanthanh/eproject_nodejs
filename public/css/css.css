@@ -1285,10 +1285,12 @@ position: absolute;
 .location_map{
     position: absolute;
     right: 0;
+    float: left;
 }
 .location_text{
     text-align: justify;
     font-size: 18px;
+    float: left;
 }
 .constellation_card {
     padding-left: 8px;
