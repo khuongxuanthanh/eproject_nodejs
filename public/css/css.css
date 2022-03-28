@@ -34,6 +34,7 @@ a {
 .grid {
     width: 1200px;
     max-width: 100%;
+    height: 100%;
     margin: 0 auto;
 }
 
@@ -84,25 +85,26 @@ a {
 /* CSS Header */
 
 .header {
-    height: 199px;
+    height: 160px;
     border-bottom: 1px solid #626262;
     background: url(../images/header-bg.jpg) no-repeat;
-    position: relative;
     background-size: cover;
     background-position: center;
 }
 
+.header-layout {
+    position: relative;
+}
 
 .header .logo {
     position: absolute;
-    margin-top: 2.5%;
-    color: var(--white-color);
+    margin-top: 20px;
 }
 
 .header-user {
     position: absolute;
-    top: 32px;
-    right: 66px;
+    top: 16px;
+    right: 0;
     color: #999;
     font-size: 1.2rem;
 }
@@ -113,7 +115,7 @@ a {
     font-size: 14px;
     cursor: pointer;
     width: 100px;
-    padding: 3px;
+    padding: 3px 0;
     border-radius: 25px;
 
     background-color: gray;
@@ -361,67 +363,83 @@ menu {
 
 .navbar {
     background: #000;
-    height: 46px;
+    height: 40px;
+}
+
+.navbar .menu {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.active .nav-link {
+    margin-left: -8px;
 }
 
 .navbar-collapse ul li a,
 .navbar a{
     color: white;
 }
+
+.nav-link {
+}
+
 /* CSS Footer */
 .footer {
     background: url(../images/footer-bg.jpg) no-repeat;
-    min-height: 160px;
+    min-height: 140px;
     background-size: cover;
     background-position: center;
 }
 
 .footer-layout {
+}
+
+.footer-item {
     display: flex;
 }
 
 .footer-nav {
-    float: left;
-    padding-right: 32px;
-    padding-top: 32px;
+    display: flex;
+    padding-top: 8px;
+}
+
+.footer-nav a img {
+    width: 60%;
+}
+
+.footer-nav a {
 }
 
 .footer-nav ul {
     float: left;
-    padding-right: 32px;
+    padding: 8px 0;
 }
 
 .footer-nav ul li {
     list-style: none;
+    width: 200px;
 }
 
 .footer-nav ul li a {
     text-decoration: none;
-    line-height: 24px;
-    font-size: 1.4rem;
+    color: black;
+    font-weight: 600;
+    font-size: 1rem;
 }
 
 .social-list {
-    margin: auto 68px;
+    margin: auto 0;
+    display: flex;
 }
 
 .social-list a {
     padding: 8px;
-    color: var(--white-color);
+    color: var(--text-color);
     font-size: 24px;
 }
 
-#footertext{
-    padding: 0;
-    float: right;
-    /*margin-right: -20%;*/
-    /*margin-top: -10%;*/
-}
-#footertext a{
-    color: lightgray;
-}
-#footertext a:hover{
-    color: violet;
+.social-list a:hover {
+    color: rgb(114, 75, 31);
 }
 
 /* CSS Home */
@@ -520,7 +538,8 @@ menu {
     text-align: justify;
 }
 #intro3{
-    display: inline-flex;
+    display: flex;
+    justify-content: space-between;
 }
 .home-solar, .home-conste {
     display: flex;
